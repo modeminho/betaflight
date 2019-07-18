@@ -96,6 +96,7 @@ static const box_t boxes[CHECKBOX_ITEM_COUNT] = {
     { BOXACROTRAINER, "ACRO TRAINER", 47 },
     { BOXVTXCONTROLDISABLE, "DISABLE VTX CONTROL", 48},
     { BOXLAUNCHCONTROL, "LAUNCH CONTROL", 49 },
+    { BOXDISABLEGPS , "DISABLEGPS", 50 },
 };
 
 // mask of enabled IDs, calculated on startup based on enabled features. boxId_e is used as bit index
@@ -193,6 +194,7 @@ void initActiveBoxIds(void)
 #ifdef USE_GPS_RESCUE
         if (!featureIsEnabled(FEATURE_3D)) {
             BME(BOXGPSRESCUE);
+            BME(BOXDISABLEGPS);
         }
 #endif
         BME(BOXBEEPGPSCOUNT);
